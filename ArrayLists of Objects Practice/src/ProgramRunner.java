@@ -2,17 +2,13 @@ import java.util.ArrayList;
 
 public class ProgramRunner
 	{
+		static ArrayList<Program> TVShows = new ArrayList<Program>();
 
 		public static void main(String[] args)
 			{
-				ArrayList<Program> TVShows = new ArrayList<Program>();
 
-				TVShows.add(new Program("Riverdale", "Mystery", 3));
-				TVShows.add(new Program("Grey's Anatomy", "Medical Drama", 15));
-				TVShows.add(new Program("Breaking Bad", "Drama", 5));
-				TVShows.add(new Program("House of Cards", "Political Drama", 6));
-				TVShows.add(new Program("Game of Thrones", "Fantasy", 8));
 				printList();
+				printListCode();
 				printAddYear();
 				deleteLongestTitle();
 				printNewTitle();
@@ -21,7 +17,6 @@ public class ProgramRunner
 
 		public static void printList()
 			{
-				ArrayList<Program> TVShows = new ArrayList<Program>();
 
 				TVShows.add(new Program("Riverdale", "Mystery", 3));
 				TVShows.add(new Program("Grey's Anatomy", "Medical Drama", 15));
@@ -29,30 +24,28 @@ public class ProgramRunner
 				TVShows.add(new Program("House of Cards", "Political Drama", 6));
 				TVShows.add(new Program("Game of Thrones", "Fantasy", 8));
 
+			}
+
+		public static void printListCode()
+			{
 				for (Program t : TVShows)
 					{
-						System.out.println(t.getTitle());
-						System.out.println(t.getGenre());
-						System.out.println(t.getNumberOfSeasonsAired());
+						System.out.print(t.getTitle() + " " + t.getGenre() + " " + t.getNumberOfSeasonsAired());
 
+						System.out.println();
 					}
 			}
 
 		public static void printAddYear()
 			{
-				ArrayList<Program> TVShows = new ArrayList<Program>();
-
-				TVShows.add(new Program("Riverdale", "Mystery", 3));
-				TVShows.add(new Program("Grey's Anatomy", "Medical Drama", 15));
-				TVShows.add(new Program("Breaking Bad", "Drama", 5));
-				TVShows.add(new Program("House of Cards", "Political Drama", 6));
-				TVShows.add(new Program("Game of Thrones", "Fantasy", 8));
+				System.out.println("");
 
 				for (Program t : TVShows)
 					{
-						System.out.println(t.getTitle());
-						System.out.println(t.getGenre());
-						System.out.println(t.getNumberOfSeasonsAired() + 1);
+						System.out.print(t.getTitle() + " " + t.getGenre() + " ");
+
+						System.out.print(t.getNumberOfSeasonsAired() + 1);
+						System.out.println();
 
 					}
 
@@ -60,39 +53,38 @@ public class ProgramRunner
 
 		public static void deleteLongestTitle()
 			{
-				ArrayList<Program> TVShows = new ArrayList<Program>();
+				System.out.println("");
+				int max = TVShows.get(0).getTitle().length();
+				int index = 0;
 
-				TVShows.add(new Program("Riverdale", "Mystery", 3));
-				TVShows.add(new Program("Grey's Anatomy", "Medical Drama", 15));
-				TVShows.add(new Program("Breaking Bad", "Drama", 5));
-				TVShows.add(new Program("House of Cards", "Political Drama", 6));
-				TVShows.add(new Program("Game of Thrones", "Fantasy", 8));
+				for (int i = 0; i < TVShows.size(); i++)
+					{
+						if (TVShows.get(i).getTitle().length() > max)
+							{
+								index = i;
+							}
 
-				TVShows.remove(4);
+					}
+				TVShows.remove(index);
+
 				for (Program t : TVShows)
 					{
-						System.out.println(t.getTitle());
-						System.out.println(t.getGenre());
-						System.out.println(t.getNumberOfSeasonsAired());
+						System.out.print(t.getTitle() + " " + t.getGenre() + " " + t.getNumberOfSeasonsAired());
 
+						System.out.println();
 					}
 
 			}
 
 		public static void printNewTitle()
 			{
-				ArrayList<Program> TVShows = new ArrayList<Program>();
+				System.out.println("");
+				TVShows.get(0).setTitle("Stranger Things");
 
-				TVShows.add(new Program("Stranger Things", "Mystery", 3));
-				TVShows.add(new Program("Grey's Anatomy", "Medical Drama", 15));
-				TVShows.add(new Program("Breaking Bad", "Drama", 5));
-				TVShows.add(new Program("House of Cards", "Political Drama", 6));
-				TVShows.add(new Program("Game of Thrones", "Fantasy", 8));
 				for (Program t : TVShows)
 					{
-						System.out.println(t.getTitle());
-						System.out.println(t.getGenre());
-						System.out.println(t.getNumberOfSeasonsAired());
+						System.out.print(t.getTitle() + " " + t.getGenre() + " " + t.getNumberOfSeasonsAired());
+						System.out.println();
 
 					}
 
